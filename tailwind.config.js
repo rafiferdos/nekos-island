@@ -16,6 +16,9 @@ export default {
       backgroundSize: {
         '300%': '300%',
       },
+      fontFamily: {
+        'madimi': "'Madimi One', 'sans-serif'",
+      },
       animation: {
         gradient: 'animatedgradient 6s ease infinite alternate',
       },
