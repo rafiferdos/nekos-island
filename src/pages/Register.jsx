@@ -1,18 +1,17 @@
-import {Link} from "react-router-dom";
-import {useContext} from "react";
-import {AuthContext} from "../FirebaseProvider/FirebaseProvider";
-import {useForm} from "react-hook-form"
-import {DevTool} from "@hookform/devtools";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
+import { useForm } from "react-hook-form"
+import { DevTool } from "@hookform/devtools";
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext)
 
     const {
         register,
         handleSubmit,
-        watch,
         control,
-        formState: {errors},
+        formState: { errors },
     } = useForm()
 
     const onSubmit = (data) => {
@@ -41,7 +40,7 @@ const Register = () => {
                                 <input
                                     type="text" placeholder="Your Name"
                                     className="input input-bordered input-primary"
-                                    {...register("name", {required: true})}/>
+                                    {...register("name", { required: true })} />
                                 {errors.name &&
                                     <span className='text-red-400 text-sm md:text-lg'>This field is required</span>}
                             </div>
@@ -52,7 +51,7 @@ const Register = () => {
                                 <input
                                     type="email" placeholder="Email"
                                     className="input input-bordered input-primary"
-                                    {...register("email", {required: true})}/>
+                                    {...register("email", { required: true })} />
                                 {errors.email &&
                                     <span className='text-red-400 text-sm md:text-lg'>This field is required</span>}
                             </div>
@@ -61,8 +60,8 @@ const Register = () => {
                                     <span className="label-text">Photo URL</span>
                                 </label>
                                 <input type="text" placeholder="Your Photo URL"
-                                       className="input input-bordered input-primary"
-                                       {...register("photo_url", {required: true})}/>
+                                    className="input input-bordered input-primary"
+                                    {...register("photo_url", { required: true })} />
                                 {errors.photo_url &&
                                     <span className='text-red-400 text-sm md:text-lg'>This field is required</span>}
                             </div>
@@ -71,38 +70,36 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" placeholder="Password"
-                                       className="input input-bordered input-primary"
-                                       {...register("password", {
-                                           required: true, pattern:
-                                               {
-                                                   value: validateText,
-                                                   message: "Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long."
-                                               }
-                                       })}/>
-                                {errors.password && <span className='text-red-400 text-sm md:text-lg'>
-                                    Required and the format should be:
-                                    <ul className='list-disc text-sm ml-5'>
-                                        <li>must have at least one uppercase letter</li>
-                                        <li>one lowercase letter</li>
-                                        <li>at least 6 characters long</li>
-                                    </ul>
-                                </span>}
-
-                                {/* password pattern: /^(?=.*[A-Z])(?=.*[a-z])[A-Za-z]{6,}$/i */}
-                                {/*{errors.password && errors.password.type !== "pattern" && (*/}
-                                {/*    <p>Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long.</p>*/}
-                                {/*)}*/}
+                                    className="input input-bordered input-primary"
+                                    {...register("password", {
+                                        required: true, pattern:
+                                        {
+                                            value: validateText,
+                                            message: "Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long."
+                                        }
+                                    })} />
+                                {
+                                    errors.password &&
+                                    <span className='text-red-400 text-sm md:text-lg'>
+                                        Required and the format should be:
+                                        <ul className='list-disc text-sm ml-5'>
+                                            <li>must have at least one uppercase letter</li>
+                                            <li>one lowercase letter</li>
+                                            <li>at least 6 characters long</li>
+                                        </ul>
+                                    </span>
+                                }
                                 <div className="flex justify-between items-center">
                                     <p className='opacity-60 lg:text-lg text-sm'>Already have an account?</p>
                                     <Link className='btn btn-ghost hover:bg-white underline text-purple-500'
-                                          to='/login'>Login</Link>
+                                        to='/login'>Login</Link>
                                 </div>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary btn-outline">Register</button>
                             </div>
                         </form>
-                        <DevTool control={control}/>
+                        <DevTool control={control} />
                     </div>
                 </div>
             </div>

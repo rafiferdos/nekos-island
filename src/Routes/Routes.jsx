@@ -6,11 +6,13 @@ import ContactUs from "../pages/ContactUs.jsx";
 import UpdateProfile from "../pages/UpdateProfile.jsx";
 import Login from "../pages/Login.jsx";
 import Register from "../pages/Register.jsx";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
