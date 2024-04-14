@@ -15,7 +15,8 @@ const Register = () => {
     } = useForm()
 
     const onSubmit = (data) => {
-        console.log(data)
+        const {email, password} = data
+        createUser(email, password)
     }
 
     const validateText = /^(?=.*[A-Z])(?=.*[a-z])[A-Za-z]{6,}$/
@@ -41,8 +42,10 @@ const Register = () => {
                                     type="text" placeholder="Your Name"
                                     className="input input-bordered input-primary"
                                     {...register("name", { required: true })} />
-                                {errors.name &&
-                                    <span className='text-red-400 text-sm md:text-lg'>This field is required</span>}
+                                {
+                                errors.name &&
+                                    <span className='text-red-400 text-sm md:text-lg'>This field is required</span>
+                                }
                             </div>
                             <div className="form-control">
                                 <label className="label">

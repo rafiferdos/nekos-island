@@ -1,6 +1,23 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
+import { useForm } from "react-hook-form"
 
 const Login = () => {
+
+    const { signInUser , signInWithGoogle } = useContext(AuthContext)
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm()
+
+    const onSubmit = (data) => {
+        const { name, password } = data
+        signInUser(name, password)
+    }
+
     return (
         <>
             <div className="hero min-h-screen lg:w-3/6 md:w-4/6 mx-auto">
@@ -10,21 +27,29 @@ const Login = () => {
                         <p className="py-6 opacity-60">We can&apos;t wait for you to get logged in here and save your information to avoid unnecessary reload data loss, so why wait? Let&apos;s jump into it.</p>
                     </div>
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" className="input input-bordered input-primary" required />
+                                <input type="email" placeholder="email" className="input input-bordered input-primary" {...register("name", { required: true })} />
+                                {
+                                    errors.name && <span className='text-red-400 text-sm md:text-lg'>This field is required</span>
+                                }
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered input-primary" required />
+                                <input type="password" placeholder="password" className="input input-bordered input-primary" {...register("password", { required: true })} />
+                                {
+                                    errors.password && <span className='text-red-400 text-sm md:text-lg'>This field is required</span>
+                                }
                             </div>
                             <div className="form-control mt-6">
-                                <button type="button"
+                                <button 
+                                    onClick={() => signInWithGoogle()}
+                                    type="button"
                                     className="py-2 mb-4 px-4 flex justify-center items-centers shadow-red-200 hover:shadow-red-300 shadow-xl bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                     <svg width="20" height="20" fill="currentColor" className="mr-2"
                                         viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
