@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "estate_title": "Luxury Private Island Retreat",
+    "segment_name": "Luxury",
+    "description": "Escape to your own private paradise on this stunning island retreat. With pristine beaches, lush vegetation, and unparalleled views, this is the ultimate getaway destination.",
+    "price": "$80,000,000",
+    "status": "sale",
+    "area": 120,
+    "location": "Caribbean",
+    "facilities": ["Private Beach", "Luxury Villa", "Infinity Pool", "Helipad"],
+    "image": "https://i.ibb.co/Wk9DZgJ/1.jpg"
+  },
+  {
+    "id": 2,
+    "estate_title": "Exclusive Island Hideaway",
+    "segment_name": "Luxury",
+    "description": "Discover true seclusion and luxury on this exclusive private island. Surrounded by crystal-clear waters and pristine beaches, this is a haven for those seeking privacy and tranquility.",
+    "price": "$120,000,000",
+    "status": "sale",
+    "area": 180,
+    "location": "South Pacific",
+    "facilities": ["Private Villas", "Spa Retreat", "Tennis Courts", "Marina"],
+    "image": "https://i.ibb.co/Lz5Nfzs/2.jpg"
+  },
+  {
+    "id": 3,
+    "estate_title": "Tropical Paradise Island Estate",
+    "segment_name": "Luxury",
+    "description": "Indulge in the ultimate luxury lifestyle on this breathtaking tropical island estate. With lush landscapes, luxurious accommodations, and world-class amenities, this is a true paradise.",
+    "price": "$65,000,000",
+    "status": "sale",
+    "area": 150,
+    "location": "Indian Ocean",
+    "facilities": ["Private Residences", "Beachfront Villas", "Gourmet Dining", "Golf Course"],
+    "image": "https://i.ibb.co/b6D1mhG/3.jpg"
+  },
+  {
+    "id": 4,
+    "estate_title": "Secluded Island Sanctuary",
+    "segment_name": "Luxury",
+    "description": "Discover serenity and luxury on this secluded island sanctuary. With lush tropical surroundings, luxurious accommodations, and pristine beaches, this is the perfect escape.",
+    "price": "$95,000,000",
+    "status": "sale",
+    "area": 170,
+    "location": "Maldives",
+    "facilities": ["Private Bungalows", "Spa & Wellness Center", "Private Jetty", "Dive Center"],
+    "image": "https://i.ibb.co/j3xPsgr/4.jpgy"
+  },
+  {
+    "id": 5,
+    "estate_title": "Exotic Island Paradise",
+    "segment_name": "Luxury",
+    "description": "Experience luxury living on this exotic island paradise. With turquoise waters, white sandy beaches, and luxurious accommodations, this is a dream destination.",
+    "price": "$110,000,000",
+    "status": "sale",
+    "area": 200,
+    "location": "Fiji",
+    "facilities": ["Private Villas", "Beach Club", "Yacht Marina", "Tropical Gardens"],
+    "image": "https://i.ibb.co/864BFN5/5.jpg"
+  },
+  {
+    "id": 6,
+    "estate_title": "Secluded Luxury Island",
+    "segment_name": "Luxury",
+    "description": "Discover unparalleled luxury and seclusion on this private island. With exclusive accommodations, pristine beaches, and breathtaking views, this is an oasis of tranquility.",
+    "price": "$75,000,000",
+    "status": "sale",
+    "area": 140,
+    "location": "Caribbean",
+    "facilities": ["Luxury Residences", "Private Spa", "Gourmet Dining", "Water Sports Center"],
+    "image": "https://i.ibb.co/bJ1RH92/6.jpg"
+  },
+  {
+    "id": 7,
+    "estate_title": "Ultimate Island Retreat",
+    "segment_name": "Luxury",
+    "description": "Escape to the ultimate island retreat and experience luxury like never before. With private villas, pristine beaches, and world-class amenities, this is paradise found.",
+    "price": "$90,000,000",
+    "status": "sale",
+    "area": 160,
+    "location": "Bahamas",
+    "facilities": ["Luxury Villas", "Private Beach Club", "Gourmet Restaurants", "Golf Course"],
+    "image": "https://i.ibb.co/RPf3Fsf/7.jpg"
+  },
+  {
+    "id": 8,
+    "estate_title": "Luxury Island Retreat",
+    "segment_name": "Luxury",
+    "description": "Indulge in luxury living on this exclusive island retreat. With luxurious villas, pristine beaches, and unrivaled privacy, this is an escape like no other.",
+    "price": "$85,000,000",
+    "status": "sale",
+    "area": 130,
+    "location": "French Polynesia",
+    "facilities": ["Private Villas", "Spa & Wellness Center", "Private Marina", "Tropical Gardens"],
+    "image": "https://i.ibb.co/Dz0jnH6/8.jpg"
+  },
+  {
+    "id": 9,
+    "estate_title": "Exclusive Island Paradise",
+    "segment_name": "Luxury",
+    "description": "Discover true exclusivity on this private island paradise. With pristine beaches, luxurious accommodations, and unparalleled privacy, this is a haven for the discerning traveler.",
+    "price": "$100,000,000",
+    "status": "sale",
+    "area": 220,
+    "location": "Pacific Ocean",
+    "facilities": ["Private Villas", "Spa Retreat", "Infinity Pool", "Private Helipad"],
+    "image": "https://i.ibb.co/5kRL7ZF/9.jpg"
+  }
+]
