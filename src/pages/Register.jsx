@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form"
-import { DevTool } from "@hookform/devtools";
+// import { DevTool } from "@hookform/devtools";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
@@ -10,7 +10,7 @@ const Register = () => {
     const {
         register,
         handleSubmit,
-        control,
+        // control,
         formState: { errors },
     } = useForm()
 
@@ -102,7 +102,7 @@ const Register = () => {
                                 <button className="btn btn-primary btn-outline">Register</button>
                             </div>
                         </form>
-                        <DevTool control={control} />
+                        {/* <DevTool control={control} /> */}
                     </div>
                 </div>
             </div>

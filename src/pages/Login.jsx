@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 
 const Login = () => {
 
-    const { signInUser , signInWithGoogle } = useContext(AuthContext)
+    const { signInUser , signInWithGoogle, signInWithGithub } = useContext(AuthContext)
 
     const {
         register,
@@ -61,7 +61,9 @@ const Login = () => {
                                     Continue with Google
                                 </button>
 
-                                <button type="button"
+                                <button
+                                    onClick={() => signInWithGithub()}
+                                    type="button"
                                     className="py-2 px-4 flex justify-center items-center shadow-xl shadow-gray-200 hover:shadow-gray-300 bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 focus:ring-offset-gray-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold  focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                         className="mr-2" viewBox="0 0 1792 1792">
