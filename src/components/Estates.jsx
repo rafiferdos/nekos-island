@@ -8,7 +8,7 @@ const Estates = ({estate}) => {
     // eslint-disable-next-line react/prop-types
     const {estate_title, segment_name, description, price, status, area, location, facilities, image} = estate;
     return (
-        <div className="card lg:w-96 bg-base-100 shadow-xl">
+        <div className="card lg:w-96 bg-base-100 shadow-2xl">
             <figure>
                 <img className='p-3 rounded-3xl' src={image} alt="Shoes"/>
             </figure>
