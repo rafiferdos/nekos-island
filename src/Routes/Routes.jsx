@@ -1,12 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layouts/Root";
 import Home from "../pages/Home";
-import Features from "../components/Features.jsx";
-import ContactUs from "../components/ContactUs.jsx";
+// import Features from "../components/Features.jsx";
+// import ContactUs from "../components/ContactUs.jsx";
 import UpdateProfile from "../pages/UpdateProfile.jsx";
 import Login from "../pages/Login.jsx";
 import Register from "../pages/Register.jsx";
 import ErrorPage from "../pages/ErrorPage";
+import Statistics from "../pages/Statistics";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register/>
+            },
+            {
+                path: '/statistics',
+                element: <Statistics />,
+                loader: () => fetch('data.json')
             }
         ]
     },
