@@ -2,7 +2,7 @@ const Features = () => {
     return (
         <>
             <div
-                className="flex items-center justify-center min-h-[calc(100vh-104px)] my-8 lg:my-0 w-11/12 container mx-auto">
+                className="flex items-center justify-center min-h-[calc(100vh-200px)] my-8 lg:my-0 w-11/12 container mx-auto">
                 <div className="bg-gray-800 rounded-3xl dark:bg-gray-100 text-gray-100 dark:text-gray-800 shadow-2xl">
                     <div className="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         <div className="max-w-3xl mx-auto text-center">
@@ -19,9 +19,9 @@ const Features = () => {
                                           d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 <div className="ml-3">
-                                    <dt className="text-lg font-medium">Find Your Next Read</dt>
+                                    <dt className="text-lg font-medium">Find Your Next Destiny</dt>
                                     <dd className="mt-2 text-gray-400 dark:text-gray-600">Never run out of options with
-                                        personalized recommendations based on your reading history and interests.
+                                        personalized recommendations based on your visiting history and interests.
                                     </dd>
                                 </div>
                             </div>
@@ -48,8 +48,8 @@ const Features = () => {
                                 </svg>
                                 <div className="ml-3">
                                     <dt className="text-lg font-medium">Exclusive Content</dt>
-                                    <dd className="mt-2 text-gray-400 dark:text-gray-600"> Go beyond the book with
-                                        author interviews, bonus materials, and special excerpts you will not find
+                                    <dd className="mt-2 text-gray-400 dark:text-gray-600"> Go beyond the journey with
+                                        ratings, bonus materials, and availability you will not find
                                         anywhere else.
                                     </dd>
                                 </div>
@@ -65,7 +65,7 @@ const Features = () => {
                                     <dt className="text-lg font-medium">Advanced Search</dt>
                                     <dd className="mt-2 text-gray-400 dark:text-gray-600">Refine your search with
                                         powerful filters and facets to find the perfect book by genre, format,
-                                        publication date, and more.
+                                        available date, and more.
                                     </dd>
                                 </div>
                             </div>
@@ -77,10 +77,10 @@ const Features = () => {
                                           d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 <div className="ml-3">
-                                    <dt className="text-lg font-medium">Pre-Orders & Alerts</dt>
+                                    <dt className="text-lg font-medium">Pre-Books & Alerts</dt>
                                     <dd className="mt-2 text-gray-400 dark:text-gray-600">Be the first to dive into
-                                        upcoming releases with pre-order options and alerts when your favorite books are
-                                        in stock.
+                                        upcoming releases with pre-book options and alerts when your favorite destinies are
+                                        in ready.
                                     </dd>
                                 </div>
                             </div>
@@ -92,9 +92,9 @@ const Features = () => {
                                           d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 <div className="ml-3">
-                                    <dt className="text-lg font-medium">Book Clubs & Forums</dt>
+                                    <dt className="text-lg font-medium">Clubs & Forums</dt>
                                     <dd className="mt-2 text-gray-400 dark:text-gray-600">Join the community! Discuss
-                                        books, connect with fellow readers, and find your next book club pick.
+                                        topics, connect with fellow people, and find your next pick.
                                     </dd>
                                 </div>
                             </div>
@@ -120,9 +120,9 @@ const Features = () => {
                                           d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 <div className="ml-3">
-                                    <dt className="text-lg font-medium">E-Reader Integration</dt>
-                                    <dd className="mt-2 text-gray-400 dark:text-gray-600">Take your library everywhere
-                                        you go. Seamlessly download ebooks to your favorite device and read on the go.
+                                    <dt className="text-lg font-medium">Auth Integration</dt>
+                                    <dd className="mt-2 text-gray-400 dark:text-gray-600">Take your access everywhere
+                                        you go. Seamlessly go throw wherever you want to access everything on the go.
                                     </dd>
                                 </div>
                             </div>

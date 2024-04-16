@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layouts/Root";
 import Home from "../pages/Home";
-import Features from "../pages/Features.jsx";
-import ContactUs from "../pages/ContactUs.jsx";
+import Features from "../components/Features.jsx";
+import ContactUs from "../components/ContactUs.jsx";
 import UpdateProfile from "../pages/UpdateProfile.jsx";
 import Login from "../pages/Login.jsx";
 import Register from "../pages/Register.jsx";
@@ -18,14 +18,6 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <Home/>,
                 loader: () => fetch('data.json')
-            },
-            {
-                path: '/features',
-                element: <Features/>
-            },
-            {
-                path: 'contact_us',
-                element: <ContactUs/>
             },
             {
                 path: '/update_profile',

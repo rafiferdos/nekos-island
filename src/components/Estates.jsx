@@ -13,15 +13,19 @@ const Estates = ({estate}) => {
                 <img className='p-3 rounded-3xl' src={image} alt="Shoes"/>
             </figure>
             <div className="card-body">
-                <h2 className="card-title">
+                <h2 className="card-title items-start justify-between">
                     {estate_title}
+                    <div
+                        className={status === 'sale' ? "badge badge-secondary text-sm" : "badge badge-accent text-sm text-white"}>{status}</div>
+
                 </h2>
                 <p className='opacity-60'>{description}</p>
                 <div className="card-actions justify-between items-center">
                     <p className='font-bold'>Area: <span className='text-purple-600'>{area} acres</span></p>
-                    <div className="badge"><FaLocationDot/> {location}</div>
+                    <div className="badge border-purple-300 text-purple-700"><FaLocationDot/> {location}</div>
                 </div>
-                <button className='btn bg-purple-100 hover:bg-purple-500 hover:text-white mt-5'>View Property <CiLocationArrow1 className='text-xl font-extrabold ' /></button>
+                <button className='btn bg-purple-100 hover:bg-purple-500 hover:text-white mt-5'>View
+                    Property <CiLocationArrow1 className='text-xl font-extrabold '/></button>
             </div>
         </div>
     );

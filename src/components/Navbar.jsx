@@ -10,10 +10,8 @@ const Navbar = () => {
 
     const links =
         <>
-            <NavLink to='/' className={({ isActive }) => isActive ? "text-purple-700 border-b-purple-500 border-b-2" : "hover:text-purple-400"}><a>Home</a></NavLink>
-            <NavLink to='features' className={({ isActive }) => isActive ? "text-purple-700 border-b-purple-500 border-b-2" : "hover:text-purple-400"}><a>Features</a></NavLink>
-            <NavLink to='contact_us' className={({ isActive }) => isActive ? "text-purple-700 border-b-purple-500 border-b-2" : "hover:text-purple-400"}><a>Contact Us</a></NavLink>
-            <NavLink to='update_profile' className={({ isActive }) => isActive ? "text-purple-700 border-b-purple-500 border-b-2" : "hover:text-purple-400"}><a>Update Profile</a></NavLink>
+            <NavLink to='/' className={({ isActive }) => isActive ? "text-purple-700 lg:border-b-purple-500 lg:border-b-2" : "hover:text-purple-400"}><a>Home</a></NavLink>
+            <NavLink to='update_profile' className={({ isActive }) => isActive ? "text-purple-700 lg:border-b-purple-500 lg:border-b-2" : "hover:text-purple-400"}><a>Update Profile</a></NavLink>
         </>
     return (
         <>
