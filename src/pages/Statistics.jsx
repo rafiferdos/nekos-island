@@ -15,8 +15,9 @@ const Statistics = () => {
             <Helmet>
                 <title>Neko&apos;s Island | Statistics</title>
             </Helmet>
-            <div data-aos="fade-up" data-aos-duration="1000">
-                <h1 className='text-3xl font-bold my-12'>Our Living <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300% font-madimi'>Area by Name</span></h1>
+            <div className='my-12 text-center' data-aos="fade-up" data-aos-duration="1000">
+                <h1 className='text-3xl font-bold'>Our Living <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300% font-madimi'>Area by Name</span></h1>
+                <p className='opacity-70'>This graph shows names in x axis and areas in y axis</p>
             </div>
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                 <BarChart
