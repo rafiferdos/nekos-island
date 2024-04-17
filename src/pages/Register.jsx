@@ -1,12 +1,17 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form"
 import { Helmet } from "react-helmet-async";
+import { IoEye, IoEyeOffSharp } from "react-icons/io5";
 // import { DevTool } from "@hookform/devtools";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
+    const [showPassword, setShowPassword] = useState(false)
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword)
+    }
 
     const {
         register,
@@ -81,11 +86,11 @@ const Register = () => {
                                 {errors.photo_url &&
                                     <span className='text-red-400 text-sm md:text-lg'>This field is required</span>}
                             </div>
-                            <div className="form-control">
+                            <div className="form-control relative">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="Password"
+                                <input type={showPassword ? 'text' : 'password'} placeholder="Password"
                                     className="input input-bordered input-primary"
                                     {...register("password", {
                                         required: true, pattern:
@@ -94,6 +99,11 @@ const Register = () => {
                                             message: "Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long."
                                         }
                                     })} />
+                                    <span className="absolute top-12 right-3 cursor-pointer">{showPassword ? (
+                                    <IoEyeOffSharp className="text-xl" onClick={togglePasswordVisibility} />
+                                ) : (
+                                    <IoEye className="text-xl" onClick={togglePasswordVisibility} />
+                                )}</span>
                                 {
                                     errors.password &&
                                     <span className='text-red-400 text-sm md:text-lg'>

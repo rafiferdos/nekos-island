@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form"
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider"
 import { useContext } from "react"
 import { Helmet } from "react-helmet-async"
+import { toast, ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const UpdateProfile = () => {
@@ -14,14 +16,31 @@ const UpdateProfile = () => {
         formState: { errors },
     } = useForm()
 
+    
+    
+    const notify = (e) => {
+        toast.success("Updated successfully, please refresh!", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        e.preventDefault()
+    }
     const onSubmit = (data) => {
         const {new_name, new_photo_url} = data
         updateUserProfile(new_name, new_photo_url)
+        notify()
+        // .then((result) => {
+        //     if(result.user) {
+        //         notify()
+        //     }
+        // })
     }
-
-    const handleUpdate = (e) => {
-        e.preventDefault();
-    }
+    const handleUpdate = handleSubmit(onSubmit)
 
     return (
         <>
@@ -35,7 +54,7 @@ const UpdateProfile = () => {
                             <h2 className="text-4xl font-bold leading-tight lg:text-5xl">Update <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300% font-madimi'>Profile!</span></h2>
                         </div>
                     </div>
-                    <form noValidate className="space-y-6" data-aos="fade-left" onSubmit={handleSubmit(onSubmit)}>
+                    <form noValidate className="space-y-6" data-aos="fade-left" onSubmit={handleUpdate}>
                         <div>
                             <label htmlFor="name" className="text-sm">New Name</label>
                             <input type="text" placeholder={user.displayName} className="w-full p-3 bg-gray-200 rounded-2xl" {...register("new_name", { required: true })} />
@@ -58,6 +77,7 @@ const UpdateProfile = () => {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </>
     )
 }

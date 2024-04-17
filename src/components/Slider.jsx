@@ -33,12 +33,21 @@ const Slider = () => {
             >
                 <SwiperSlide>
                     <img src={img1} alt={'cover image'}/>
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
+                        <p className="text-white lg:text-5xl w-3/5 text-center">Having a booring day? just come, we are waiting for your visit</p>
+                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src={img2} alt={'cover image'}/>
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
+                        <p className="text-white lg:text-5xl w-3/5 text-center">We have astounding collection of estates that will blow your mind up</p>
+                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src={img3} alt={'cover image'}/>
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
+                        <p className="text-white lg:text-5xl w-3/5 text-center">Feel free to go deep, We will always be there for you, Best Wishes</p>
+                    </div>
                 </SwiperSlide>
             </Swiper>
         </div>

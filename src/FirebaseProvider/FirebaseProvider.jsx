@@ -21,17 +21,28 @@ const FirebaseProvider = ({children}) => {
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
+        .then((result) => {
+                setUser(result.user)
+        }
+        )
     }
 
     const updateUserProfile = (name, image) => {
         return updateProfile(auth.currentUser, {
             displayName: name, 
             photoURL: image
+          }).then(() =>{
+            setUser(auth.currentUser)
+
+          
           })
     }
 
     const signInUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
+        .then((result) => {
+                setUser(result.user)
+        })
     }
 
     // const handleSocialLogin = (socialProvider) => {
@@ -55,17 +66,30 @@ const FirebaseProvider = ({children}) => {
         signOut(auth)
     }
 
+    // useEffect(() => {
+    //     onAuthStateChanged(auth, currentUser => {
+    //         if (currentUser) {
+    //             setUser(currentUser)
+    //             // console.log('User is signed in')
+    //         } else {
+    //             // console.log('No user is signed in')
+    //             setUser(null)
+    //         }
+    //     })
+    // })
+
     useEffect(() => {
-        onAuthStateChanged(auth, currentUser => {
-            if (currentUser) {
-                setUser(currentUser)
-                // console.log('User is signed in')
-            } else {
-                // console.log('No user is signed in')
-                setUser(null)
-            }
-        })
-    })
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+          if (user) {
+            setUser(user);
+          } else {
+            setUser(null);
+          }
+        });
+      
+        // Cleanup subscription on unmount
+        return () => unsubscribe();
+      }, []);
 
     const allValues = {
         createUser,

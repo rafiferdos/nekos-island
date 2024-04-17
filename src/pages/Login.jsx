@@ -72,9 +72,9 @@ const Login = () => {
                                 </label>
                                 <input type={showPassword ? 'text' : 'password'} placeholder="password" className="input input-bordered input-primary" {...register("password", { required: true })} />
                                 <span className="absolute top-12 right-3 cursor-pointer">{showPassword ? (
-                                    <IoEyeOffSharp onClick={togglePasswordVisibility} />
+                                    <IoEyeOffSharp className="text-xl" onClick={togglePasswordVisibility} />
                                 ) : (
-                                    <IoEye onClick={togglePasswordVisibility} />
+                                    <IoEye className="text-xl" onClick={togglePasswordVisibility} />
                                 )}</span>
                                 {
                                     errors.password && <span className='text-red-400 text-sm md:text-lg'>This field is required</span>
