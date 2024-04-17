@@ -8,11 +8,11 @@ const UpdateProfile = () => {
             <div className="lg:min-h-[calc(100vh-300px)] md:min-h-[calc(100vh-200px)] flex items-center justify-center lg:my-16 md:my-8 my-5">
                 <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 bg-gray-800 dark:bg-gray-100 text-gray-100 dark:text-gray-800 shadow-2xl">
                     <div className="flex flex-col justify-center items-center">
-                        <div>
+                        <div data-aos="fade-right">
                             <h2 className="text-4xl font-bold leading-tight lg:text-5xl">Update <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300% font-madimi'>Profile!</span></h2>
                         </div>
                     </div>
-                    <form noValidate className="space-y-6">
+                    <form noValidate className="space-y-6" data-aos="fade-left">
                         <div>
                             <label htmlFor="name" className="text-sm">New Name</label>
                             <input type="text" placeholder="" className="w-full p-3 bg-gray-200 rounded-2xl" />

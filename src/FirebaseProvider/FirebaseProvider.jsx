@@ -3,12 +3,17 @@ import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPa
 import auth from "../firebase/firebase.config.js";
 // import PropTypes from "prop-types";
 import {useState, useEffect} from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext(null)
 
 
 // eslint-disable-next-line react/prop-types
 const FirebaseProvider = ({children}) => {
+
+    // const navigate = useNavigate()
+    // const location = useLocation()
+    // const from = location?.state || '/'
 
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
@@ -22,6 +27,14 @@ const FirebaseProvider = ({children}) => {
     const signInUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
+
+    // const handleSocialLogin = (socialProvider) => {
+    //     socialProvider().then(result => {
+    //         if (result.user) {
+    //             navigate(from)
+    //         }
+    //     })
+    // }
 
     const signInWithGoogle = () => {
         return signInWithPopup(auth, googleProvider)
@@ -40,9 +53,9 @@ const FirebaseProvider = ({children}) => {
         onAuthStateChanged(auth, currentUser => {
             if (currentUser) {
                 setUser(currentUser)
-                console.log('User is signed in')
+                // console.log('User is signed in')
             } else {
-                console.log('No user is signed in')
+                // console.log('No user is signed in')
                 setUser(null)
             }
         })
@@ -53,6 +66,7 @@ const FirebaseProvider = ({children}) => {
         signInUser,
         signInWithGoogle,
         signInWithGithub,
+        // handleSocialLogin,
         logout,
         user
     }

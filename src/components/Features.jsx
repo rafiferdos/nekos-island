@@ -2,7 +2,7 @@ const Features = () => {
     return (
         <>
             <div
-                className="flex items-center justify-center min-h-[calc(100vh-200px)] my-8 lg:my-0 w-11/12 container mx-auto">
+                className="flex items-center justify-center min-h-[calc(100vh-200px)] my-8 lg:my-0 w-11/12 container mx-auto" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">
                 <div className="rounded-3xl shadow-2xl">
                     <div className="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         <div className="max-w-3xl mx-auto text-center">

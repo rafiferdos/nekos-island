@@ -1,9 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form"
 
 const Login = () => {
+
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state || '/'
+
+    const handleSocialLogin = (socialProvider) => {
+        socialProvider().then(result => {
+            if (result.user) {
+                navigate(from)
+            }
+        })
+    }
 
     const { signInUser , signInWithGoogle, signInWithGithub } = useContext(AuthContext)
 
@@ -22,11 +34,11 @@ const Login = () => {
         <>
             <div className="hero min-h-screen lg:w-3/6 md:w-4/6 mx-auto">
                 <div className="hero-content flex-col lg:flex-row-reverse lg:gap-16">
-                    <div className="text-center lg:text-left">
+                    <div className="text-center lg:text-left" data-aos="fade-left" data-aos-duration="1000">
                         <h1 className="font-bold text-2xl lg:text-6xl md:text-4xl bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300% font-madimi">Login now!</h1>
                         <p className="py-6 opacity-60">We can&apos;t wait for you to get logged in here and save your information to avoid unnecessary reload data loss, so why wait? Let&apos;s jump into it.</p>
                     </div>
-                    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100" data-aos="fade-right" data-aos-duration="1000">
                         <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-control">
                                 <label className="label">
@@ -49,7 +61,8 @@ const Login = () => {
                             <div className="divider divider-primary">Or</div>
                             <div className="form-control">
                                 <button 
-                                    onClick={() => signInWithGoogle()}
+                                    onClick={() => handleSocialLogin(signInWithGoogle)}
+                                    // onClick={() => signInWithGoogle()}
                                     type="button"
                                     className="py-2 mb-4 px-4 flex justify-center items-centers shadow-red-200 hover:shadow-red-300 shadow-xl bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                     <svg width="20" height="20" fill="currentColor" className="mr-2"
@@ -62,7 +75,8 @@ const Login = () => {
                                 </button>
 
                                 <button
-                                    onClick={() => signInWithGithub()}
+                                    onClick={() => handleSocialLogin(signInWithGithub)}
+                                    // onClick={() => signInWithGithub()}
                                     type="button"
                                     className="py-2 px-4 flex justify-center items-center shadow-xl shadow-gray-200 hover:shadow-gray-300 bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 focus:ring-offset-gray-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold  focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"

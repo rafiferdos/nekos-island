@@ -8,7 +8,7 @@ const PrivateRoute = ({children}) => {
     const location = useLocation()
     if(!user)
         return <Navigate to='/login' state={location?.pathname || '/'}/>
-    return {children}
+    return children
 };
 
 export default PrivateRoute;

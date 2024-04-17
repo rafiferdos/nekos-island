@@ -22,7 +22,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/update_profile',
-                element: <UpdateProfile/>
+                element: <PrivateRoute><UpdateProfile/></PrivateRoute>
             },
             {
                 path: '/login',
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/estate/:id',
-                element: <EstateDetails />,
+                element: <PrivateRoute><EstateDetails /></PrivateRoute>,
                 loader: () => fetch('/data.json')
             }
         ]

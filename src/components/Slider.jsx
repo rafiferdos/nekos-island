@@ -25,7 +25,7 @@ const Slider = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     return (
-        <div className='lg:min-h-[calc(100vh-200px)] mt-5 md:mt-8 lg:mt-16'>
+        <div className='lg:min-h-[calc(100vh-200px)] mt-5 md:mt-8 lg:mt-16' data-aos="fade-up">
             <Swiper
                 spaceBetween={30}
                 effect={'fade'}

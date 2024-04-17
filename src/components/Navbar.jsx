@@ -7,7 +7,6 @@ import { useContext } from "react";
 const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext)
-    // console.log(user.photoURL);
 
     const links =
         <>
@@ -18,7 +17,7 @@ const Navbar = () => {
     return (
         <>
             <div className="navbar bg-base-100 max-w-7xl mx-auto lg:py-6 w-11/12">
-                <div className="navbar-start">
+                <div className="navbar-start" data-aos="fade-down">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -43,9 +42,9 @@ const Navbar = () => {
                     {
                         user ?
                             <div className="dropdown dropdown-end">
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip='Rafi'>
-                                    <div className="w-10 rounded-full ring ring-primary ring-offset-2">
-                                        {/* <img alt="Tailwind CSS Navbar component" src={user.photoURL} /> */}
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip={user.displayName}>
+                                    <div className="w-10 rounded-full ring ring-primary ring-offset-2" data-aos="zoom-in-left">
+                                        <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
                                     </div>
                                 </div>
                                 <ul tabIndex={0} className="mt-3 z-[100] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
@@ -57,6 +56,7 @@ const Navbar = () => {
                             <Link
                                 to='/login'
                                 className="btn shadow-none bg-white text-purple-700 hover:bg-purple-50 btn-primary btn-xs sm:btn-sm border-none md:btn-md lg:btn-md"
+                                data-aos="zoom-in-left"
                             >
                                 <IoPersonOutline />Login
                             </Link>
