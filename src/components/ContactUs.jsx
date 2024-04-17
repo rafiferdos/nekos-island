@@ -24,7 +24,6 @@ const ContactUs = () => {
                         <div className="opacity-70">Ready to go?</div>
                         <h2 className="text-4xl font-bold leading-tight lg:text-5xl">Let&rsquo;s <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300% font-madimi'>talk!</span></h2>
                     </div>
-                    {/*<img src="assets/svg/doodle.svg" alt="" className="p-6 h-52 md:h-64" />*/}
                 </div>
                 <form noValidate className="space-y-6">
                     <div>

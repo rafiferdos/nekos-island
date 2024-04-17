@@ -14,7 +14,6 @@ const FirebaseProvider = ({children}) => {
     const githubProvider = new GithubAuthProvider()
 
     const [user, setUser] = useState(null)
-    console.log(user);
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)

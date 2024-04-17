@@ -1,14 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layouts/Root";
 import Home from "../pages/Home";
-// import Features from "../components/Features.jsx";
-// import ContactUs from "../components/ContactUs.jsx";
 import UpdateProfile from "../pages/UpdateProfile.jsx";
 import Login from "../pages/Login.jsx";
 import Register from "../pages/Register.jsx";
 import ErrorPage from "../pages/ErrorPage";
 import Statistics from "../pages/Statistics";
 import PrivateRoute from "../components/PrivateRoute";
+import EstateDetails from "../pages/EstateDetails";
 
 const router = createBrowserRouter([
     {
@@ -37,6 +36,11 @@ const router = createBrowserRouter([
                 path: '/statistics',
                 element: <PrivateRoute><Statistics /></PrivateRoute>,
                 loader: () => fetch('data.json')
+            },
+            {
+                path: '/estate/:id',
+                element: <EstateDetails />,
+                loader: () => fetch('/data.json')
             }
         ]
     },

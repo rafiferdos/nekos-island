@@ -8,7 +8,6 @@ import ContactUs from "../components/ContactUs.jsx";
 // eslint-disable-next-line react/prop-types
 const Home = () => {
     const data = useLoaderData()
-    console.log(data)
     return (
         <div className='container mx-auto w-11/12 max-w-7xl'>
             <Slider/>
