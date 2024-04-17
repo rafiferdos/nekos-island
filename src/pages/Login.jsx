@@ -5,9 +5,17 @@ import { useForm } from "react-hook-form"
 import { Helmet } from "react-helmet-async";
 import { IoEye } from "react-icons/io5";
 import { IoEyeOffSharp } from "react-icons/io5";
-
+import { toast, ToastContainer } from "react-toastify";
+// import Swal from 'sweetalert2'
 
 const Login = () => {
+
+    // Swal.fire({
+    //     title: 'Error!',
+    //     text: 'Do you want to continue',
+    //     icon: 'error',
+    //     confirmButtonText: 'Cool'
+    //   })
 
     const [showPassword, setShowPassword] = useState(false)
     const togglePasswordVisibility = () => {
@@ -28,6 +36,11 @@ const Login = () => {
 
     const { signInUser, signInWithGoogle, signInWithGithub } = useContext(AuthContext)
 
+    // const [errorMessage, setErrorMessage] = useState('')
+    // const [errorExpression, setErrorExpression] = useState(true)
+    
+    const [msg, setMsg] = useState(null)
+
     const {
         register,
         handleSubmit,
@@ -35,6 +48,7 @@ const Login = () => {
     } = useForm()
 
     const onSubmit = (data) => {
+        
         const { name, password } = data
         signInUser(name, password)
             .then((result) => {
@@ -42,8 +56,25 @@ const Login = () => {
                     navigate(from)
                 }
             })
+            .catch ((error) => {
+                if (error) {
+                    setMsg(error.message)
+                }
+            })
     }
 
+    const notify = () => {
+        return toast.info(msg, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        // e.preventDefault()
+    }
 
     return (
         <>
@@ -114,11 +145,13 @@ const Login = () => {
                                     <Link className='btn btn-ghost hover:bg-transparent underline text-purple-500'
                                         to='/register'>Register</Link>
                                 </div>
-                                <button className="btn btn-primary btn-outline">Login</button>
+                                <button onClick={notify} className="btn btn-primary btn-outline">Login</button>
+                                {/* <p>{errorMessage}</p> */}
                             </div>
                         </form>
                     </div>
                 </div>
+                <ToastContainer />
             </div>
         </>
     )

@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const UpdateProfile = () => {
 
-    const {user, updateUserProfile} = useContext(AuthContext)
+    const { user, updateUserProfile } = useContext(AuthContext)
 
     const {
         register,
@@ -16,10 +16,10 @@ const UpdateProfile = () => {
         formState: { errors },
     } = useForm()
 
-    
-    
-    const notify = (e) => {
-        toast.success("Updated successfully, please refresh!", {
+
+
+    const notify = () => {
+        return toast.success("Updated successfully, please refresh!", {
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,
@@ -31,18 +31,21 @@ const UpdateProfile = () => {
         // e.preventDefault()
     }
     const onSubmit = (data) => {
-        const {new_name, new_photo_url} = data
+        const { new_name, new_photo_url } = data
         updateUserProfile(user, new_name, new_photo_url)
-        notify()
+            .then(() => {
+
+                notify()
+            })
     }
     const handleUpdate = handleSubmit(onSubmit)
 
     return (
         <>
             <div className="lg:min-h-[calc(100vh-300px)] md:min-h-[calc(100vh-200px)] flex items-center justify-center lg:my-16 md:my-8 my-5">
-            <Helmet>
-                <title>Neko&apos;s Island | Update Profile</title>
-            </Helmet>
+                <Helmet>
+                    <title>Neko&apos;s Island | Update Profile</title>
+                </Helmet>
                 <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 bg-gray-800 dark:bg-gray-100 text-gray-100 dark:text-gray-800 shadow-2xl">
                     <div className="flex flex-col justify-center items-center">
                         <div data-aos="fade-right">

@@ -27,7 +27,6 @@ const FirebaseProvider = ({children}) => {
     }
 
     const updateUserProfile = (user, name, image) => {
-        setLoading(true)
         console.log(name, image)
         return updateProfile(user, {
             displayName: name, 
