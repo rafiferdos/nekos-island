@@ -10,6 +10,8 @@ export const AuthContext = createContext(null)
 // eslint-disable-next-line react/prop-types
 const FirebaseProvider = ({children}) => {
 
+
+    const [loading , setLoading] = useState(true)
     // const navigate = useNavigate()
     // const location = useLocation()
     // const from = location?.state || '/'
@@ -20,28 +22,27 @@ const FirebaseProvider = ({children}) => {
     const [user, setUser] = useState(null)
 
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
-        .then((result) => {
-                setUser(result.user)
-        }
-        )
     }
 
-    const updateUserProfile = (name, image) => {
-        return updateProfile(auth.currentUser, {
+    const updateUserProfile = (user, name, image) => {
+        setLoading(true)
+        console.log(name, image)
+        return updateProfile(user, {
             displayName: name, 
             photoURL: image
-          }).then(() =>{
-            setUser(auth.currentUser)
+          })
 
           
-          })
     }
 
     const signInUser = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
         .then((result) => {
                 setUser(result.user)
+                console.log(result)
         })
     }
 
@@ -54,10 +55,12 @@ const FirebaseProvider = ({children}) => {
     // }
 
     const signInWithGoogle = () => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
     const signInWithGithub = () => {
+        setLoading(true)
         return signInWithPopup(auth, githubProvider)
     }
 
@@ -82,11 +85,12 @@ const FirebaseProvider = ({children}) => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
           if (user) {
             setUser(user);
-          } else {
+            setLoading(false)
+        } else {
             setUser(null);
+            setLoading(false)
           }
         });
-      
         // Cleanup subscription on unmount
         return () => unsubscribe();
       }, []);
@@ -98,6 +102,7 @@ const FirebaseProvider = ({children}) => {
         signInWithGithub,
         updateUserProfile,
         logout,
+        loading,
         user
     }
 

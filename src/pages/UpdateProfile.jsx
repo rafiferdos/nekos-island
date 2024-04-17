@@ -28,17 +28,12 @@ const UpdateProfile = () => {
             draggable: true,
             progress: undefined,
         });
-        e.preventDefault()
+        // e.preventDefault()
     }
     const onSubmit = (data) => {
         const {new_name, new_photo_url} = data
-        updateUserProfile(new_name, new_photo_url)
+        updateUserProfile(user, new_name, new_photo_url)
         notify()
-        // .then((result) => {
-        //     if(result.user) {
-        //         notify()
-        //     }
-        // })
     }
     const handleUpdate = handleSubmit(onSubmit)
 

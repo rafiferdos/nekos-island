@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form"
@@ -7,7 +7,7 @@ import { IoEye, IoEyeOffSharp } from "react-icons/io5";
 // import { DevTool } from "@hookform/devtools";
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, updateUserProfile } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false)
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword)
@@ -21,17 +21,25 @@ const Register = () => {
     } = useForm()
 
     const navigate = useNavigate()
-    const location = useLocation()
-    const from = location?.state || '/'
+    // const location = useLocation()
+    const from = '/'
 
     const onSubmit = (data) => {
-        const {email, password} = data
+        const { email, password } = data
         createUser(email, password)
-        .then((result) => {
-            if(result.user) {
-                navigate(from)
-            }
-        })
+            .then((result) => {
+                console.log(result)
+                if (result.user) {
+                    
+                    updateUserProfile(result.user, data.name, data.photo_url)
+                        .then(() => {
+                            navigate(from)
+                            console.log('updated')
+                        })
+
+
+                }
+            })
     }
 
     const validateText = /^(?=.*[A-Z])(?=.*[a-z])[A-Za-z]{6,}$/
@@ -39,9 +47,9 @@ const Register = () => {
     return (
         <>
             <div className="hero min-h-screen lg:w-3/6 md:w-4/6 mx-auto">
-            <Helmet>
-                <title>Neko&apos;s Island | Register</title>
-            </Helmet>
+                <Helmet>
+                    <title>Neko&apos;s Island | Register</title>
+                </Helmet>
                 <div className="hero-content flex-col lg:flex-row-reverse lg:gap-16">
                     <div className="text-center lg:text-left" data-aos="fade-left" data-aos-duration="1000">
                         <h1 className="font-bold text-2xl lg:text-6xl md:text-4xl bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300% font-madimi">Register
@@ -61,7 +69,7 @@ const Register = () => {
                                     className="input input-bordered input-primary"
                                     {...register("name", { required: true })} />
                                 {
-                                errors.name &&
+                                    errors.name &&
                                     <span className='text-red-400 text-sm md:text-lg'>This field is required</span>
                                 }
                             </div>
@@ -99,7 +107,7 @@ const Register = () => {
                                             message: "Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long."
                                         }
                                     })} />
-                                    <span className="absolute top-12 right-3 cursor-pointer">{showPassword ? (
+                                <span className="absolute top-12 right-3 cursor-pointer">{showPassword ? (
                                     <IoEyeOffSharp className="text-xl" onClick={togglePasswordVisibility} />
                                 ) : (
                                     <IoEye className="text-xl" onClick={togglePasswordVisibility} />
