@@ -18,10 +18,10 @@ const ContactUs = () => {
 
     return (
         <div className="lg:min-h-[calc(100vh-300px)] flex items-center justify-center">
-            <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 bg-gray-800 dark:bg-gray-100 text-gray-100 dark:text-gray-800 shadow-2xl">
+            <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 shadow-2xl">
                 <div className="flex flex-col justify-center items-center">
                     <div className="space-y-2">
-                        <div className="text-gray-400 dark:text-gray-600">Ready to go?</div>
+                        <div className="opacity-70">Ready to go?</div>
                         <h2 className="text-4xl font-bold leading-tight lg:text-5xl">Let&rsquo;s <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300% font-madimi'>talk!</span></h2>
                     </div>
                     {/*<img src="assets/svg/doodle.svg" alt="" className="p-6 h-52 md:h-64" />*/}
