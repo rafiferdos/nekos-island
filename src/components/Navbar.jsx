@@ -7,6 +7,7 @@ import { useContext } from "react";
 const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext)
+    // console.log(user.photoURL);
 
     const links =
         <>
@@ -42,14 +43,13 @@ const Navbar = () => {
                     {
                         user ?
                             <div className="dropdown dropdown-end">
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom" data-tip='Rafi'>
                                     <div className="w-10 rounded-full ring ring-primary ring-offset-2">
-                                        <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                        {/* <img alt="Tailwind CSS Navbar component" src={user.photoURL} /> */}
                                     </div>
                                 </div>
-                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                    <li><a>Profile</a></li>
-                                    <li><a>Settings</a></li>
+                                <ul tabIndex={0} className="mt-3 z-[100] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                    <Link to='/update_profile' className="pl-3 py-1.5 rounded-lg btn-ghost" ><a>Update Profile</a></Link>
                                     <li onClick={logout}><a>Logout</a></li>
                                 </ul>
                             </div>

@@ -1,4 +1,8 @@
 const UpdateProfile = () => {
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        alert('Profile Updated!');
+    }
     return (
         <>
             <div className="lg:min-h-[calc(100vh-300px)] md:min-h-[calc(100vh-200px)] flex items-center justify-center lg:my-16 md:my-8 my-5">
@@ -21,7 +25,7 @@ const UpdateProfile = () => {
                             <label htmlFor="message" className="text-sm">Email</label>
                             <input type='email' className="w-full p-3 bg-gray-200 rounded-2xl cursor-not-allowed" disabled={true}></input>
                         </div>
-                        <button type="submit" className="w-full rounded-full p-3 px-5 text-sm font-bold uppercase bg-violet-400 hover:bg-violet-600 text-gray-100 transition-all text-center">Update</button>
+                        <button type="submit" onClick={handleUpdate} className="w-full rounded-full p-3 px-5 text-sm font-bold uppercase bg-violet-400 hover:bg-violet-600 text-gray-100 transition-all text-center">Update</button>
                     </form>
                 </div>
             </div>

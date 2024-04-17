@@ -8,6 +8,7 @@ import Login from "../pages/Login.jsx";
 import Register from "../pages/Register.jsx";
 import ErrorPage from "../pages/ErrorPage";
 import Statistics from "../pages/Statistics";
+import PrivateRoute from "../components/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/statistics',
-                element: <Statistics />,
+                element: <PrivateRoute><Statistics /></PrivateRoute>,
                 loader: () => fetch('data.json')
             }
         ]

@@ -10,7 +10,8 @@ const Statistics = () => {
         }
     })
     return (
-        <div className='flex w-11/12 mx-auto container items-center justify-center md:min-h-[calc(100vh-104px)] lg:min-h-[calc(100vh-104px)]'>
+        <div className='flex w-11/12 mx-auto container items-center justify-center md:min-h-[calc(100vh-104px)] flex-col lg:min-h-[calc(100vh-104px)]'>
+            <h1 className='text-3xl font-bold my-12'>Our Living <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300% font-madimi'>Area by Name</span></h1>
             <BarChart
                 width={600}
                 height={500}

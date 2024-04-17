@@ -1,18 +1,20 @@
-import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ContactUs = () => {
 
-    const notify = () => toast.success("Message sent successfully!", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-    });
+    const notify = (e) => {
+        toast.success("Message sent successfully!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        e.preventDefault()
+    }
 
     return (
         <div className="lg:min-h-[calc(100vh-300px)] flex items-center justify-center">
