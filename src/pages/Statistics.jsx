@@ -1,5 +1,6 @@
 import { BarChart, Bar, XAxis, YAxis } from 'recharts';
 import { useLoaderData } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Statistics = () => {
     const loaderData = useLoaderData()
@@ -11,6 +12,9 @@ const Statistics = () => {
     })
     return (
         <div className='flex w-11/12 mx-auto container items-center justify-center md:min-h-[calc(100vh-104px)] flex-col lg:min-h-[calc(100vh-104px)]'>
+            <Helmet>
+                <title>Neko&apos;s Island | Statistics</title>
+            </Helmet>
             <div data-aos="fade-up" data-aos-duration="1000">
                 <h1 className='text-3xl font-bold my-12'>Our Living <span className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300% font-madimi'>Area by Name</span></h1>
             </div>

@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form"
+import { Helmet } from "react-helmet-async";
 // import { DevTool } from "@hookform/devtools";
 
 const Register = () => {
@@ -14,9 +15,18 @@ const Register = () => {
         formState: { errors },
     } = useForm()
 
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state || '/'
+
     const onSubmit = (data) => {
         const {email, password} = data
         createUser(email, password)
+        .then((result) => {
+            if(result.user) {
+                navigate(from)
+            }
+        })
     }
 
     const validateText = /^(?=.*[A-Z])(?=.*[a-z])[A-Za-z]{6,}$/
@@ -24,6 +34,9 @@ const Register = () => {
     return (
         <>
             <div className="hero min-h-screen lg:w-3/6 md:w-4/6 mx-auto">
+            <Helmet>
+                <title>Neko&apos;s Island | Register</title>
+            </Helmet>
                 <div className="hero-content flex-col lg:flex-row-reverse lg:gap-16">
                     <div className="text-center lg:text-left" data-aos="fade-left" data-aos-duration="1000">
                         <h1 className="font-bold text-2xl lg:text-6xl md:text-4xl bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300% font-madimi">Register

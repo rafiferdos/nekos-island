@@ -1,9 +1,8 @@
 import {createContext} from "react";
-import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, GithubAuthProvider, signOut} from "firebase/auth";
+import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, GithubAuthProvider, signOut, updateProfile} from "firebase/auth";
 import auth from "../firebase/firebase.config.js";
 // import PropTypes from "prop-types";
 import {useState, useEffect} from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext(null)
 
@@ -22,6 +21,13 @@ const FirebaseProvider = ({children}) => {
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
+    }
+
+    const updateUserProfile = (name, image) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, 
+            photoURL: image
+          })
     }
 
     const signInUser = (email, password) => {
@@ -66,7 +72,7 @@ const FirebaseProvider = ({children}) => {
         signInUser,
         signInWithGoogle,
         signInWithGithub,
-        // handleSocialLogin,
+        updateUserProfile,
         logout,
         user
     }
