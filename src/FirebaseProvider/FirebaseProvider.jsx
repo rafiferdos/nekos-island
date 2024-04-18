@@ -24,6 +24,10 @@ const FirebaseProvider = ({children}) => {
     const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
+        .then((result) => {
+            setUser(result.user)
+            console.log(result.user)
+        })
     }
 
     const updateUserProfile = (user, name, image) => {
@@ -41,7 +45,6 @@ const FirebaseProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password)
         .then((result) => {
                 setUser(result.user)
-                console.log(result)
         })
     }
 

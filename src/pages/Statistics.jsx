@@ -10,6 +10,9 @@ const Statistics = () => {
             uv: d.area
         }
     })
+
+    const width = window.innerWidth <= 768 ? 450 : 600
+
     return (
         <div className='flex w-11/12 mx-auto container items-center justify-center md:min-h-[calc(100vh-104px)] flex-col lg:min-h-[calc(100vh-104px)]'>
             <Helmet>
@@ -21,13 +24,13 @@ const Statistics = () => {
             </div>
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                 <BarChart
-                    width={600}
+                    width={width}
                     height={500}
                     data={data}
                     margin={{
                         top: 0,
                         right: 50,
-                        left: 100,
+                        left: 60,
                         bottom: 120,
                     }}>
                     <Bar dataKey="uv" fill="#8884d8" />

@@ -4,6 +4,7 @@ import { AuthContext } from "../FirebaseProvider/FirebaseProvider";
 import { useForm } from "react-hook-form"
 import { Helmet } from "react-helmet-async";
 import { IoEye, IoEyeOffSharp } from "react-icons/io5";
+import { toast, ToastContainer } from "react-toastify";
 // import { DevTool } from "@hookform/devtools";
 
 const Register = () => {
@@ -12,6 +13,8 @@ const Register = () => {
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword)
     }
+
+    // const { setUser } = useContext(AuthContext)
 
     const {
         register,
@@ -23,6 +26,19 @@ const Register = () => {
     const navigate = useNavigate()
     // const location = useLocation()
     const from = '/'
+
+    const notify = () => {
+        return toast.success("Account Created Successfully", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        // e.preventDefault()
+    }
 
     const onSubmit = (data) => {
         const { email, password } = data
@@ -36,7 +52,7 @@ const Register = () => {
                             navigate(from)
                             console.log('updated')
                         })
-
+                        // setUser(result.user)
 
                 }
             })
@@ -130,12 +146,13 @@ const Register = () => {
                                 </div>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary btn-outline">Register</button>
+                                <button onClick={notify} className="btn btn-primary btn-outline">Register</button>
                             </div>
                         </form>
                         {/* <DevTool control={control} /> */}
                     </div>
                 </div>
+                <ToastContainer />
             </div>
         </>
     )

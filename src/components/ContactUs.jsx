@@ -20,7 +20,7 @@ const ContactUs = () => {
     }
 
     return (
-        <div className="lg:min-h-[calc(100vh-300px)] flex items-center justify-center" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">
+        <div className="lg:min-h-[calc(100vh-300px)] flex items-center justify-center mb-8" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="700">
             <div className="grid max-w-screen-xl grid-cols-1 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 shadow-2xl">
                 <div className="flex flex-col justify-center items-center">
                     <div className="space-y-2" data-aos="fade-right" data-aos-delay="1200" data-aos-duration="1000">

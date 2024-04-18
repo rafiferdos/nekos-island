@@ -14,7 +14,7 @@ const Home = () => {
                 <title>Neko&apos;s Island | Home</title>
             </Helmet>
             <Slider/>
-            <h1 className='lg:text-5xl md:text-3xl text-xl text-center lg:my-16 md:my-10  font-bold' data-aos="fade-up" data-aos-duration="1500">Our <span
+            <h1 className='lg:text-5xl md:text-3xl text-xl text-center lg:my-16 md:my-10 my-8 font-bold' data-aos="fade-up" data-aos-duration="1500">Our <span
                 className='bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient bg-300% font-madimi'>Real Estate </span>Choices
             </h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mb-4 md:mb-8 lg:mb-16' data-aos="fade-up" data-aos-delay="500" data-aos-duration="1500">
